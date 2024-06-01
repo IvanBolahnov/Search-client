@@ -1,5 +1,6 @@
 import axios from "axios"
 import { booksSlice } from "./booksSlice"
+import { ApiUrl } from "../../utils/consts"
 
 const {
 	booksFetching,
@@ -17,7 +18,7 @@ export const fetchAllBooks = () => {
 	return async (dispatch) => {
 		try {
 			dispatch(booksFetching())
-			const response = await axios.get("http://localhost:5000/api/books/")
+			const response = await axios.get(`http://${ApiUrl}:5000/api/books/`)
 			dispatch(booksFetchingSuccess(response.data))
 		} catch (error) {
 			dispatch(booksFetchingError(error.message))
@@ -29,7 +30,7 @@ export const deleteBook = (id) => {
 	return async (dispatch) => {
 		try {
 			dispatch(booksDelete())
-			await axios.delete(`http://localhost:5000/api/books/${id}`)
+			await axios.delete(`http://${ApiUrl}:5000/api/books/${id}`)
 			dispatch(booksDeleteSuccess(id))
 		} catch (error) {
 			dispatch(booksFetchingError(error.message))
@@ -41,7 +42,7 @@ export const createBook = ({ tag, name, year, author }) => {
 	return async (dispatch) => {
 		try {
 			dispatch(bookCreating())
-			const response = await axios.post("http://localhost:5000/api/books/", {
+			const response = await axios.post(`http://${ApiUrl}:5000/api/books/`, {
 				tag,
 				name,
 				year,
@@ -59,7 +60,7 @@ export const updateBook = ({ id, tag, name, year, author }) => {
 		try {
 			dispatch(bookUpdating())
 			const response = await axios.patch(
-				`http://localhost:5000/api/books/${id}`,
+				`http://${ApiUrl}:5000/api/books/${id}`,
 				{
 					tag,
 					name,
