@@ -1,0 +1,84 @@
+.card {
+	margin: 1px;
+	border: 2px solid #eee;
+	border-radius: 6px;
+	padding: 5px;
+	background: linear-gradient(#111 calc(100% - 37px), #555);
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-areas: "name name" "author author" "tag year" "edit delete";
+	overflow: hidden;
+}
+
+.card__info {
+	display: flex;
+	/* align-items: center; */
+	min-height: 32px;
+	color: #fff;
+	gap: 5px;
+	padding: 4px;
+	overflow: hidden;
+	/* width: 100%; */
+}
+
+.card__info span {
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	line-height: 24px;
+	width: 100%;
+}
+
+.card__info svg {
+	flex-shrink: 0;
+}
+
+.card__name {
+	border-bottom: #555 1px solid;
+	grid-area: name;
+}
+
+.card__name span,
+.card__author span {
+	-webkit-line-clamp: 2;
+}
+
+.card__author {
+	border-bottom: #555 1px solid;
+	grid-area: author;
+}
+
+.card__tag {
+	border-bottom: #555 1px solid;
+	grid-area: tag;
+}
+
+.card__year {
+	border-bottom: #555 1px solid;
+	border-left: #555 1px solid;
+	grid-area: year;
+}
+
+.card__button {
+	display: flex;
+	height: 32px;
+	color: #fff;
+	gap: 5px;
+	padding: 4px;
+}
+
+.card__button span {
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	line-height: 24px;
+	width: 100%;
+	text-align: left;
+}
+
+.card__delete {
+	border-left: #555 1px solid;
+	color: #f33;
+}
